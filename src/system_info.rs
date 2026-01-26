@@ -25,8 +25,8 @@ impl SystemInfo {
         let mut sys = System::new_all();
         sys.refresh_all();
 
-        let user = whoami::username();
-        let hostname = whoami::fallible::hostname().unwrap_or_else(|_| "Unknown".to_string());
+        let user = whoami::username().unwrap_or_else(|_| "Unknown".to_string());
+        let hostname = whoami::hostname().unwrap_or_else(|_| "Unknown".to_string());
         let datetime = Local::now();
 
         // OS and Kernel info
